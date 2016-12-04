@@ -8,6 +8,7 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import xyz.yurue.nobu.qiitaclient.R
+import xyz.yurue.nobu.qiitaclient.bindView
 import xyz.yurue.nobu.qiitaclient.model.Article
 
 class ArticleView : FrameLayout {
@@ -26,17 +27,14 @@ class ArticleView : FrameLayout {
                 defStyleAttr: Int,
                 defStyleRes: Int) : super(context, attrs, defStyleAttr, defStyleRes)
 
-    var profileImageView: ImageView? = null
+    val profileImageView: ImageView by bindView(R.id.profile_image_view)
 
-    var titleTextView: TextView? = null
+    val titleTextView: TextView by bindView(R.id.title_text_view)
 
-    var userNameTextView: TextView? = null
+    val userNameTextView: TextView by bindView(R.id.user_name_text_view)
 
     init {
         LayoutInflater.from(context).inflate(R.layout.view_article, this)
-        profileImageView = findViewById(R.id.profile_image_view) as ImageView
-        titleTextView = findViewById(R.id.title_text_view) as TextView
-        userNameTextView = findViewById(R.id.user_name_text_view) as TextView
     }
 
     fun setArticle(article: Article) {
